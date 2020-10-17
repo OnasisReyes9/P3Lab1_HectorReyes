@@ -18,6 +18,7 @@ using namespace std;
  */
 double ejercicio2(int);
 double exponente(int);
+double sigmoide(int);
 void menu();
 
 using std::cout;
@@ -47,16 +48,8 @@ void menu() {
                 cout << "Ingrese valor de x: ";
                 cin >> numIngresadoX;
                 cout << "" << endl;
-                double resultado = 0.0, limite = 0.0;
-                if (numIngresadoX < 0) {
-                    limite = numIngresadoX * -1;
-                    resultado = 1.0 / (1.0 + exponente(limite));
-                } else {
-                    limite = numIngresadoX;
-                    resultado = 1.0 / exponente(limite);
-                    resultado = 1.0 / (1.0 + resultado);
-                }//fin else
-                cout << "f(" << numIngresadoX << ") = " << resultado << endl << endl;
+
+                cout << "f(" << numIngresadoX << ") = " << sigmoide(numIngresadoX) << endl << endl;
                 break;
             }
             case 2:
@@ -87,6 +80,19 @@ void menu() {
         }//fin switch
     }//fin while
 }//fin menu
+
+double sigmoide(int numIngresadoX) {
+    double resultado = 0.0, limite = 0.0;
+    if (numIngresadoX < 0) {
+        limite = numIngresadoX * -1;
+        resultado = 1.0 / (1.0 + exponente(limite));
+    } else {
+        limite = numIngresadoX;
+        resultado = 1.0 / exponente(limite);
+        resultado = 1.0 / (1.0 + resultado);
+    }//fin else
+    return resultado;
+}//fin método
 
 double exponente(int limite) {
     double eElevado = 1.0;
